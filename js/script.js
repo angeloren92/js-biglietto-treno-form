@@ -7,7 +7,10 @@
 
 //funzioni 
 
-//recupero nodi degli input
+/**
+ * ## Catturiamo i nodi di input
+ * @returns restituiamo un array con i nodi
+ */
 function getInputNodes() {
     const nodes= {
     fullNameEl: document.getElementById('fullName'),
@@ -18,7 +21,11 @@ function getInputNodes() {
     return nodes
 }
 
-//recuperiamo nell'array i valori degli input 
+/**
+ * ## Catturiamo i valori dei nodi di input
+ * @param {arr} arr - inseriamo l'array con i nodi di getInputNodes 
+ * @returns restituisce array con i valori trovati
+ */
 function getInputValues(arr) {
     const values = {
     fullNameValue: arr.fullNameEl.value,
@@ -28,24 +35,23 @@ function getInputValues(arr) {
     return values;
 }
 /**
- * ## Calcolo sconto del biglietto
+ * ## Calcoliamo lo sconto in base all'età
  * @param {arr} ticket - Inserire L'array conentenenti le informazioni del ticket  
  * @returns restituisce un elemento arr con il moltiplicatore del valore al netto dello sconto, se 1 prezzo pieno, 0.8 equivale a 20% e 0.6 il 40% di sconto
  */
-function calcDiscount(arr) {
-    discount = 1;
+function calcDiscount(age) {
+    let discount = 1;
     //calcola lo sconto da applicare
-    if (arr.ageValue === 'Minorenne') {
+    if (age === 'Minorenne') {
         discount = 0.8;
-    } else if (arr.ageValue === 'Over 65') {
+    } else if (age === 'Over 65') {
         discount = 0.6;
     }
-    console.log(arr)
     return discount;
 }
 
 /**
- * 
+ * ## calcoliamo il prezzo finale del biglietto
  * @param {number} val1 - Inserisci il valore della distanza da percorrere
  * @param {number} val2 - inserisci il valore dello scontro
  * @returns restituisce un elemento arr con il prezzo finalme calcolato
@@ -56,7 +62,7 @@ function calcFinalPrice(val1, val2) {
     return arr.finalPrice;
 }
 
-
+//catturiamo il nodo del form
 const formEl = document.querySelector('form');
 //evento del form
 formEl.addEventListener('submit', function (e) {
@@ -70,8 +76,10 @@ formEl.addEventListener('submit', function (e) {
     ticket.discount = calcDiscount(ticket.ageValue);
     //calcoliamo il prezzo finale del biglietto
     ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue)
+
     console.log(ticket);
 })
+
 
 //inserimento valori trovati in HTML
 //recuperiamo i nodi dell'output
