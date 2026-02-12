@@ -90,11 +90,17 @@ formEl.addEventListener('submit', function (e) {
     ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue)
     //catturiamo gli output nodes
     const outputNodes = getOutputNodes();
-
+    //generiamo un numero di carrozza
+    const getCarriageNumber = () => (Math.floor(Math.random() * 18) + 1);
+    //generiamo un numero CP
+    const getCpNumber = () => (Math.floor(Math.random() * 100000) +100000);
+    //aggiungiamo gli elementi nell'array ticket
+    ticket.carriageNumber = getCarriageNumber();
+    ticket.cpNumber = getCpNumber();
+    //inseriamo gli elementi in HTML
     console.log(ticket);
     console.log(outputNodes)
 })
-
 
 
 
