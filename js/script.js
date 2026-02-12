@@ -5,22 +5,20 @@
 
 */
 
-//funzioni 
-
+//FUNZIONI
 /**
  * ## Catturiamo i nodi di input
  * @returns restituiamo un array con i nodi
  */
 function getInputNodes() {
-    const nodes= {
-    fullNameEl: document.getElementById('fullName'),
-    distanceEl: document.getElementById('distance'),
-    ageEl: document.getElementById('age'),
-    btnSubmitEl: document.querySelector('button[type="submit"]'),
+    const nodes = {
+        fullNameEl: document.getElementById('fullName'),
+        distanceEl: document.getElementById('distance'),
+        ageEl: document.getElementById('age'),
+        btnSubmitEl: document.querySelector('button[type="submit"]'),
     }
     return nodes
 }
-
 /**
  * ## Catturiamo i valori dei nodi di input
  * @param {arr} arr - inseriamo l'array con i nodi di getInputNodes 
@@ -28,9 +26,9 @@ function getInputNodes() {
  */
 function getInputValues(arr) {
     const values = {
-    fullNameValue: arr.fullNameEl.value,
-    distanceValue: parseInt(arr.distanceEl.value),
-    ageValue: arr.ageEl.value
+        fullNameValue: arr.fullNameEl.value,
+        distanceValue: parseInt(arr.distanceEl.value),
+        ageValue: arr.ageEl.value
     }
     return values;
 }
@@ -49,7 +47,6 @@ function calcDiscount(age) {
     }
     return discount;
 }
-
 /**
  * ## calcoliamo il prezzo finale del biglietto
  * @param {number} val1 - Inserisci il valore della distanza da percorrere
@@ -61,6 +58,21 @@ function calcFinalPrice(val1, val2) {
     arr.finalPrice = (0.21 * val1 * val2);
     return arr.finalPrice;
 }
+ /** ## Catturiamo gli output nodes
+ * @returns restituisce array con i nodi
+ */
+function getOutputNodes() {
+    const outputNodes = {
+        passengerEl: document.querySelector('.passenger'),
+        promotionEl: document.querySelector('td:first-child'),
+        ticketPriceEl: document.querySelector('td:last-child'),
+        carriageEl: document.querySelector('td:nth-child(2)'),
+        cpCode: document.querySelector('td:nth-child(3)')
+    }
+    return outputNodes;
+}
+
+
 
 //catturiamo il nodo del form
 const formEl = document.querySelector('form');
@@ -76,15 +88,15 @@ formEl.addEventListener('submit', function (e) {
     ticket.discount = calcDiscount(ticket.ageValue);
     //calcoliamo il prezzo finale del biglietto
     ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue)
+    //catturiamo gli output nodes
+    const outputNodes = getOutputNodes();
 
     console.log(ticket);
+    console.log(outputNodes)
 })
 
 
-//inserimento valori trovati in HTML
-//recuperiamo i nodi dell'output
-const passengerEl = document.querySelector('.passenger');
-const promotionEl = document.querySelector('td:first-child');
-const ticketPriceEl = document.querySelector('td:last-child')
+
+
 
 
