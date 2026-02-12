@@ -94,6 +94,9 @@ const formEl = document.getElementById('mainForm');
 formEl.addEventListener('submit', function (e) {
     //blocchiamo il refresh
     e.preventDefault();
+    //catturiamo il node del col dove sta il biglietto e lo facciamo comparire
+    const ticketDiv = document.getElementById('ticket');
+    ticketDiv.classList.replace('d-none', 'd-block');
     //catturiamo i nodi di input
     const inputNodes = getInputNodes();
     //catturiamo i valori dei nodi di input
