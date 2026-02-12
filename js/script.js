@@ -15,14 +15,29 @@ const btnSubmitEl = document.querySelector('button[type="submit"]');
 const ticket = {
     fullNameValue: '',
     distanceValue: 0,
-    ageValue: ''
+    ageValue: '',
+    price: 0.21,
+    discount: 1
 }
 //evento del form che cattura i value degli input
-formEl.addEventListener('submit', function(e){
+formEl.addEventListener('submit', function (e) {
     e.preventDefault();
     ticket.fullNameValue = fullNameEl.value;
     ticket.distanceValue = distanceEl.value;
     ticket.ageValue = ageEl.value;
+    //calcola lo sconto da applicare
+    if (ticket.ageValue === 'Minorenne') {
+        ticket.discount = 0.8;
+    } else if (ticket.ageValue === 'Over 65') {
+        ticket.discount = 0.6;
+    }
+    ticket.price = (ticket.price * ticket.distanceValue * ticket.discount);
 })
 
 
+
+
+
+
+//debug
+console.log(ticket);
