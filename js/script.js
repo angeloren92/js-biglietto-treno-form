@@ -1,7 +1,4 @@
 /*
--Recuperiamo in delle variabili i nodi del form e di tutti gli input
--Evento submit con funzione dove andiamo a bloccare il refresh della pagina
-    -Associamo i value dei vari nodi input dentro alle variabili
 
 */
 
@@ -54,7 +51,8 @@ function calcDiscount(age) {
  * @returns restituisce un elemento arr con il prezzo finalme calcolato
  */
 function calcFinalPrice(val1, val2) {
-    const finalPrice = (0.21 * val1 * val2);
+    let finalPrice = (0.21 * val1 * val2);
+    finalPrice = finalPrice.toFixed(2);
     return finalPrice;
 }
  /** ## Catturiamo gli output nodes
@@ -71,38 +69,11 @@ function getOutputNodes() {
     console.log(outputNodes.ticketPriceEl)
     return outputNodes;
 }
-
-
-
-//catturiamo il nodo del form
-const formEl = document.querySelector('form');
-//evento del form
-formEl.addEventListener('submit', function (e) {
-    //blocchiamo il refresh
-    e.preventDefault();
-    //catturiamo i nodi di input
-    const inputNodes = getInputNodes();
-    //catturiamo i valori dei nodi di input
-    const ticket = getInputValues(inputNodes);
-    //calcoliamo lo sconto in base all'età
-    ticket.discount = calcDiscount(ticket.ageValue);
-    //calcoliamo il prezzo finale del biglietto
-    ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue);
-    ticket.finalPrice = ticket.finalPrice.toFixed(2)
-    //catturiamo gli output nodes
-    const outputNodes = getOutputNodes();
-    //generiamo un numero di carrozza
-    const getCarriageNumber = () => (Math.floor(Math.random() * 18) + 1);
-    //generiamo un numero CP
-    const getCpNumber = () => (Math.floor(Math.random() * 100000) +100000);
-    //aggiungiamo gli elementi nell'array ticket
-    ticket.carriageNumber = getCarriageNumber();
-    ticket.cpNumber = getCpNumber();
-    //inseriamo gli elementi in HTML
-    logTicket(ticket, outputNodes);
-    console.log(ticket.finalPrice)
-})
-
+/**
+ * ## Inseriamo gli elementi in HTML
+ * @param {arr} arr1 - Inserisci array contenente valori per il biglietto
+ * @param {arr} arr2 - Inserisci array contenente nodi output
+ */
 function logTicket(arr1, arr2) {
     arr2.passengerEl.innerHTML = arr1.fullNameValue;
     arr2.carriageEl.innerHTML = arr1.carriageNumber;
@@ -116,6 +87,35 @@ function logTicket(arr1, arr2) {
     }
     arr2.promotionEl.innerHTML = text;
 }
+
+//catturiamo il nodo del form
+const formEl = document.getElementById('mainForm');
+//evento del form
+formEl.addEventListener('submit', function (e) {
+    //blocchiamo il refresh
+    e.preventDefault();
+    //catturiamo i nodi di input
+    const inputNodes = getInputNodes();
+    //catturiamo i valori dei nodi di input
+    const ticket = getInputValues(inputNodes);
+    //calcoliamo lo sconto in base all'età
+    ticket.discount = calcDiscount(ticket.ageValue);
+    //calcoliamo il prezzo finale del biglietto
+    ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue);
+    //catturiamo gli output nodes
+    const outputNodes = getOutputNodes();
+    //generiamo un numero di carrozza
+    const getCarriageNumber = () => (Math.floor(Math.random() * 18) + 1);
+    //generiamo un numero CP
+    const getCpNumber = () => (Math.floor(Math.random() * 100000) +100000);
+    //aggiungiamo gli elementi nell'array ticket
+    ticket.carriageNumber = getCarriageNumber();
+    ticket.cpNumber = getCpNumber();
+    //inseriamo gli elementi in HTML
+    logTicket(ticket, outputNodes);
+})
+
+
 
 
 
