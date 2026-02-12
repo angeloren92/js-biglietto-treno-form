@@ -87,7 +87,8 @@ formEl.addEventListener('submit', function (e) {
     //calcoliamo lo sconto in base all'età
     ticket.discount = calcDiscount(ticket.ageValue);
     //calcoliamo il prezzo finale del biglietto
-    ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue)
+    ticket.finalPrice = calcFinalPrice(ticket.discount, ticket.distanceValue);
+    ticket.finalPrice = ticket.finalPrice.toFixed(2)
     //catturiamo gli output nodes
     const outputNodes = getOutputNodes();
     //generiamo un numero di carrozza
@@ -106,7 +107,7 @@ function logTicket(arr1, arr2) {
     arr2.passengerEl.innerHTML = arr1.fullNameValue;
     arr2.carriageEl.innerHTML = arr1.carriageNumber;
     arr2.cpCodeEl.innerHTML = arr1.cpNumber;
-    arr2.ticketPriceEl = `${arr1.finalPrice} €`;
+    arr2.ticketPriceEl.innerHTML = `${arr1.finalPrice} €`;
     let text = 'Biglietto Standard';
     if (arr1.discount === 0.8) {
         text = 'Biglietto Junior';
