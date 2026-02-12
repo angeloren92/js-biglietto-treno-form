@@ -10,23 +10,34 @@
 </head>
 
 <body>
+    <!-- header -->
     <header></header>
+    <!-- main -->
     <main>
+        <!-- container -->
         <section class="container">
+            <!-- row ticketing -->
             <div class="row mt-3 g-3">
+                <!-- col ticketing -->
                 <div class="col">
+                    <!-- card ticketing -->
                     <div class="card">
                         <div class="card-body">
+                            <!-- title card ticketing -->
                             <h3 class="card-title">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h3>
+                            <!-- form card ticketing -->
                             <form class="row g-3">
+                                <!-- input name -->
                                 <div class="col">
                                     <label for="fullName" class="form-label">Nome e Cognome</label>
                                     <input type="text" class="form-control" id="fullName">
                                 </div>
+                                <!-- input distance -->
                                 <div class="col">
                                     <label for="distance" class="form-label">Km da percorrere</label>
                                     <input type="number" class="form-control" id="distance">
                                 </div>
+                                <!-- input age -->
                                 <div class="col">
                                     <label for="age" class="form-label">State</label>
                                     <select id="age" class="form-select">
@@ -36,51 +47,57 @@
                                         <option>Over 65</option>
                                     </select>
                                 </div>
-                        </div>
-                        <div class="col-12 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-outline-success">Sign in</button>
-                            <button type="reset" class="btn btn-outline-secondary">Sign in</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body row">
-                        <h3 class="card-title">IL TUO BIGLIETTO</h3>
-                        <div class="col-4">
-                            <h4>DETTAGLIO PASSEGERI</h4>
-                            <span>NOME PASSEGGERO</span>
-                        </div>
-                        <div class="col-8">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Offerta</th>
-                                        <th>Carrozza</th>
-                                        <th>Codice CP</th>
-                                        <th>Costo Biglietto</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <!-- submit and reset buttons  -->
+                                <div class="col-12 d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-outline-success">Sign in</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Sign in</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- col ticket -->
+                <div class="col">
+                    <!-- card ticket -->
+                    <div class="card">
+                        <div class="card-body row">
+                            <!-- card title -->
+                            <h3 class="card-title">IL TUO BIGLIETTO</h3>
+                            <!-- ticket name details -->
+                            <div class="col-4">
+                                <h4>DETTAGLIO PASSEGERI</h4>
+                                <span>NOME PASSEGGERO</span>
+                            </div>
+                            <div class="col-8">
+                            <!-- ticket train detail and cost -->
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Offerta</th>
+                                            <th>Carrozza</th>
+                                            <th>Codice CP</th>
+                                            <th>Costo Biglietto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    <!-- footer -->
     <footer></footer>
+
     <script src="./js/script.js"></script>
 </body>
 
