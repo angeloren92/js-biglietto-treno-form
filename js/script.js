@@ -54,9 +54,8 @@ function calcDiscount(age) {
  * @returns restituisce un elemento arr con il prezzo finalme calcolato
  */
 function calcFinalPrice(val1, val2) {
-    const arr = [];
-    arr.finalPrice = (0.21 * val1 * val2);
-    return arr.finalPrice;
+    const finalPrice = (0.21 * val1 * val2);
+    return finalPrice;
 }
  /** ## Catturiamo gli output nodes
  * @returns restituisce array con i nodi
@@ -67,8 +66,9 @@ function getOutputNodes() {
         promotionEl: document.querySelector('td:first-child'),
         ticketPriceEl: document.querySelector('td:last-child'),
         carriageEl: document.querySelector('td:nth-child(2)'),
-        cpCode: document.querySelector('td:nth-child(3)')
+        cpCodeEl: document.querySelector('td:nth-child(3)')
     }
+    console.log(outputNodes.ticketPriceEl)
     return outputNodes;
 }
 
@@ -98,11 +98,23 @@ formEl.addEventListener('submit', function (e) {
     ticket.carriageNumber = getCarriageNumber();
     ticket.cpNumber = getCpNumber();
     //inseriamo gli elementi in HTML
-    console.log(ticket);
-    console.log(outputNodes)
+    logTicket(ticket, outputNodes);
+    console.log(ticket.finalPrice)
 })
 
-
+function logTicket(arr1, arr2) {
+    arr2.passengerEl.innerHTML = arr1.fullNameValue;
+    arr2.carriageEl.innerHTML = arr1.carriageNumber;
+    arr2.cpCodeEl.innerHTML = arr1.cpNumber;
+    arr2.ticketPriceEl = `${arr1.finalPrice} €`;
+    let text = 'Biglietto Standard';
+    if (arr1.discount === 0.8) {
+        text = 'Biglietto Junior';
+    } else if (arr1.discount === 0.6) {
+        text = 'Biglietto Senior';
+    }
+    arr2.promotionEl.innerHTML = text;
+}
 
 
 
