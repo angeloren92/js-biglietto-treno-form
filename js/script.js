@@ -11,8 +11,7 @@ function getInputNodes() {
     const nodes = {
         fullNameEl: document.getElementById('fullName'),
         distanceEl: document.getElementById('distance'),
-        ageEl: document.getElementById('age'),
-        btnSubmitEl: document.querySelector('button[type="submit"]'),
+        ageEl: document.getElementById('age')
     }
     return nodes
 }
@@ -25,7 +24,7 @@ function getInputValues(arr) {
     const values = {
         fullNameValue: arr.fullNameEl.value,
         distanceValue: parseInt(arr.distanceEl.value),
-        ageValue: arr.ageEl.value
+        ageValue: arr.ageEl.value;
     }
     return values;
 }
@@ -66,7 +65,6 @@ function getOutputNodes() {
         carriageEl: document.querySelector('td:nth-child(2)'),
         cpCodeEl: document.querySelector('td:nth-child(3)')
     }
-    console.log(outputNodes.ticketPriceEl)
     return outputNodes;
 }
 /**
