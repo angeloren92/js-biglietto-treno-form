@@ -24,7 +24,7 @@ function getInputValues(arr) {
     const values = {
         fullNameValue: arr.fullNameEl.value,
         distanceValue: parseInt(arr.distanceEl.value),
-        ageValue: arr.ageEl.value;
+        ageValue: arr.ageEl.value
     }
     return values;
 }
